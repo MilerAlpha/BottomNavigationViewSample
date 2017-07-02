@@ -30,8 +30,10 @@ public class MainActivity extends AppCompatActivity {
         final Fragment favoritesFragment = new FavoritesFragment();
         final Fragment profileFragment = new ProfileFragment();
 
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentContainer, homeFragment).commit();
+        if (savedInstanceState == null) {
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragmentContainer, homeFragment).commit();
+        }
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
 
